@@ -1,20 +1,42 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <meta
-      http-equiv="X-Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <title>Hello from Electron renderer!</title>
-  </head>
-  <body>
-    <h1>Hello from Electron renderer!</h1>
-    <p>👋</p>
-  </body>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'" />
+  <title>整備予定 担当者順序変更</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+
+    <div id="header">
+      <h1>整備予定 担当者順序変更</h1>
+      <div id="branch-area">
+        <label for="branch-select">支店：</label>
+        <select id="branch-select">
+          <option value="">-- 支店を選択してください --</option>
+        </select>
+        <button id="reload-btn">再読み込み</button>
+      </div>
+    </div>
+
+    <div id="message-area"></div>
+
+    <div id="employee-container">
+      <p id="placeholder-text">支店を選択してください</p>
+      <div id="employee-list"></div>
+    </div>
+
+    <div id="footer">
+      <span id="status-text"></span>
+      <div id="footer-buttons">
+        <button id="save-btn" disabled>保存</button>
+        <button id="quit-btn">終了</button>
+      </div>
+    </div>
+
+  </div>
+  <script src="renderer.js"></script>
+</body>
 </html>

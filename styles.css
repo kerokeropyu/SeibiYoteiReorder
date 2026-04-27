@@ -1,0 +1,229 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Meiryo', 'Yu Gothic', 'MS Gothic', sans-serif;
+  background: #f0f2f5;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* ---- Header ---- */
+#header {
+  background: #2c5282;
+  color: white;
+  padding: 12px 20px;
+  flex-shrink: 0;
+}
+
+#header h1 {
+  font-size: 17px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+#branch-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#branch-area label {
+  font-size: 14px;
+}
+
+#branch-select {
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: none;
+  min-width: 220px;
+}
+
+#reload-btn {
+  padding: 5px 14px;
+  background: #4a7fc1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+#reload-btn:hover { background: #3b6ba5; }
+
+/* ---- Message ---- */
+#message-area {
+  min-height: 34px;
+  padding: 6px 20px;
+  font-size: 13px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.msg-error {
+  color: #c53030;
+  background: #fff5f5;
+  border-left: 4px solid #c53030;
+  padding: 4px 10px;
+  border-radius: 2px;
+  width: 100%;
+}
+
+.msg-success {
+  color: #276749;
+  background: #f0fff4;
+  border-left: 4px solid #38a169;
+  padding: 4px 10px;
+  border-radius: 2px;
+  width: 100%;
+}
+
+/* ---- Employee area ---- */
+#employee-container {
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px;
+  background: #f7f8fa;
+}
+
+#placeholder-text {
+  color: #999;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+#employee-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  padding: 10px 4px;
+  min-height: 110px;
+  align-items: center;
+}
+
+/* ---- Employee card ---- */
+.employee-card {
+  border: 2px solid #2c5282;
+  border-radius: 6px;
+  padding: 14px 18px;
+  background: #ffffff;
+  cursor: grab;
+  min-width: 90px;
+  text-align: center;
+  user-select: none;
+  flex-shrink: 0;
+  transition: box-shadow 0.15s, opacity 0.15s, border-color 0.15s;
+}
+
+.employee-card:active { cursor: grabbing; }
+
+.employee-card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+}
+
+.employee-card .seq-label {
+  font-size: 10px;
+  color: #aaa;
+  margin-bottom: 5px;
+}
+
+.employee-card .emp-name {
+  font-size: 14px;
+  font-weight: bold;
+  color: #1a202c;
+}
+
+/* ドラッグ中の元カード */
+.employee-card.dragging {
+  opacity: 0.35;
+  cursor: grabbing;
+}
+
+/* 移動済みカード（未保存の変更あり） */
+.employee-card.modified {
+  border-color: #d69e2e;
+  background: #fffff0;
+}
+
+/* 移動ロック中（既に1人移動済み） */
+.employee-card.locked {
+  opacity: 0.55;
+  cursor: not-allowed;
+  border-color: #a0aec0;
+}
+
+/* ドロップ位置インジケーター（左寄せ） */
+.employee-card.drop-left {
+  border-left: 4px solid #e53e3e;
+}
+
+/* ドロップ位置インジケーター（右寄せ） */
+.employee-card.drop-right {
+  border-right: 4px solid #e53e3e;
+}
+
+/* ---- Footer ---- */
+#footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #e2e8f0;
+  border-top: 1px solid #cbd5e0;
+  flex-shrink: 0;
+}
+
+#status-text {
+  font-size: 13px;
+  color: #4a5568;
+}
+
+#footer-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+#save-btn {
+  padding: 8px 28px;
+  background: #276749;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#save-btn:hover:not(:disabled) { background: #2f855a; }
+
+#save-btn:disabled {
+  background: #a0aec0;
+  cursor: not-allowed;
+}
+
+#quit-btn {
+  padding: 8px 28px;
+  background: #742a2a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#quit-btn:hover { background: #9b2c2c; }
