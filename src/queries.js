@@ -10,6 +10,7 @@ const BRANCH_SELECT = `
   FROM MST_BRANCH
   WHERE kaisha_cd = :kaishaCd
     AND seq > 0
+    AND DEL_FLG = 0
   ORDER BY seq
 `;
 
@@ -25,6 +26,8 @@ const EMPLOYEE_SELECT = `
     AND be.seq > 0
     AND be.yuko_from <= SYSDATE
     AND be.yuko_to >= SYSDATE
+    AND be.DEL_FLG = 0
+    AND e.DEL_FLG = 0
   WHERE be.shiten_cd = :shitenCd
   ORDER BY be.seq
 `;
